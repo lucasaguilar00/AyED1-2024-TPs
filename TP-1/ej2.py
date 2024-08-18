@@ -4,26 +4,29 @@ tenerse en cuenta la cantidad de días de cada mes, incluyendo los años bisiest
 Devolver True o False según la fecha sea correcta o no. Realizar también un
 programa para verificar el comportamiento de la función"""
 
-def es_bisiesto(anio):
-    #verifica si el año es bisiesto mediante un calculo que cumplen estos
-    if anio % 4 == 0 and (anio % 400 == 0 or anio % 100 != 0):
+def es_bisiesto(a):
+    #verifica si el año es bisiesto mediante un calculo que tienen en comun 
+    if a % 4 == 0 and (a % 400 == 0 or a % 100 != 0):
         return True
     else:
         return False
 
-def verifica_fecha(dia, mes, anio):
+def verifica_fecha(d, m, a):
+    #Verifica que la fecha sea válida teniendo en cuenta los años bisiestos
+    
     dias_al_mes = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     
-    if mes < 1 or mes > 12:
+    if m < 1 or m > 12:
         return False
-    if es_bisiesto(anio) == True:
+    if es_bisiesto(a) == True:
         dias_al_mes[1] = 29
-    if dia < 1 or dia > dias_al_mes[mes-1]:
+    if d < 1 or d > dias_al_mes[m-1]:
         return False
     else:
         return True
 
 def verificacion_funcion():
+    #Prueba de la función para ver si funciona correctamente
     fechas_de_prueba = [
         [29, 29, 31, 1, 31, 0, 2],
         [2, 2, 6, 7, 12, 3, 13],
@@ -31,16 +34,16 @@ def verificacion_funcion():
     ]
     
     for i in range(len(fechas_de_prueba[0])):
-        dia = fechas_de_prueba[0][i]
-        mes = fechas_de_prueba[1][i]
-        anio = fechas_de_prueba[2][i]
+        d = fechas_de_prueba[0][i]
+        m = fechas_de_prueba[1][i]
+        a = fechas_de_prueba[2][i]
         
-        es_valido = verifica_fecha(dia, mes, anio)
+        es_valido = verifica_fecha(d, m, a)
         
         if es_valido == True:
-            print(f"{dia}/{mes}/{anio} es una fecha valida")
+            print(f"{d}/{m}/{a} es una fecha valida")
         else:
-            print(f"{dia}/{mes}/{anio} es una fecha invalida")
+            print(f"{d}/{m}/{a} es una fecha invalida")
 
 verificacion_funcion()
 while True: 
