@@ -25,7 +25,8 @@ def mayor_estricto(a, b, c):
 
 
 def valores():
-    #Esta función pide 3 números y devuelve el mayor utilizando la función "mayor_estricto", luego avisa si encontro un número mayor o no
+    """Esta función pide 3 números y devuelve el mayor utilizando la función "mayor_estricto"
+    luego avisa si encontro un número mayor o no"""
     a = int(input("Ingrese el primer valor POSITIVO: "))
     b = int(input("Ingrese el segundo valor POSITIVO: "))
     c = int(input("Ingrese el tercer valor POSITIVO: "))
