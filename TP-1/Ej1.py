@@ -4,8 +4,9 @@ caso de no haber ninguno. No utilizar operadores lógicos (and, or, not). Desarr
 también un programa para ingresar los tres valores, invocar a la función y mostrar
 el máximo hallado, o un mensaje informativo si éste no existe."""
 
+
 def mayor_estricto(a, b, c):
-    #Recibe tres números devolviendo el mayor de los 3 o un -1 en caso de no haber un mayor estricto
+    # Recibe tres números devolviendo el mayor de los 3 o un -1 en caso de no haber un mayor estricto
     if a > b:
         if a > c:
             return a
@@ -35,5 +36,6 @@ def valores():
         print(f"El número mayor es {mayor}")
     else:
         print("No existe un número mayor estricto.")
+
 
 valores()
