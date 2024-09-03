@@ -58,11 +58,12 @@ def max_carga(cajones):
     return camiones, cajones_sobra
 
 
-x_cajon, x_jugo = cant_naranja()
-cantidad_cajones, prox_reparto = cant_cajones(x_cajon)
-camion, cajones_prox_reparto = max_carga(cantidad_cajones)
+if __name__ == "__main__":
+    x_cajon, x_jugo = cant_naranja()
+    cantidad_cajones, prox_reparto = cant_cajones(x_cajon)
+    camion, cajones_prox_reparto = max_carga(cantidad_cajones)
 
-print(f"Se pueden llenar {x_cajon} cajones, y {x_jugo} naranjas son para jugo.")
-print(
-    f"Para el proximo reparto hay {prox_reparto} naranjas sueltas y {cajones_prox_reparto} cajones."
-)
+    print(f"Se pueden llenar {x_cajon} cajones, y {x_jugo} naranjas son para jugo.")
+    print(
+        f"Para el proximo reparto hay {prox_reparto} naranjas sueltas y {cajones_prox_reparto} cajones."
+    )

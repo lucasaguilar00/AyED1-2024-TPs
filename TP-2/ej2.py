@@ -8,15 +8,17 @@ c. Recibir una lista como parámetro y devolver una nueva lista con los elemento
 únicos de la lista original, sin importar el orden.
 Combinar estas tres funciones en un mismo programa.
 """
-import random as rn 
 
-lista = [] #Inicio lista vacía
+import random as rn
 
-def cargar_lista(var : list) -> list: #Opción A
-    #Carga lista con la cantidad de indices que desea con números random.
+lista = []  # Inicio lista vacía
+
+
+def cargar_lista(var: list) -> list:  # Opción A
+    # Carga lista con la cantidad de indices que desea con números random.
     while True:
         try:
-        #Utiliza try para prevenir un posible error que detenga el programa
+            # Utiliza try para prevenir un posible error que detenga el programa
             elementos = int(input("Ingrese la cantidad de elementos que desea tener: "))
             if elementos > 0:
                 for _ in range(elementos):
@@ -28,13 +30,15 @@ def cargar_lista(var : list) -> list: #Opción A
             print("Ingrese un número entero válido")
 
 
-def hay_repetidos(var : list) -> bool: # Opción B
-    #Verifica si hay un elemento repetido en la lista comparando el largo de la lista con un set que no permite datos repetidos.
+def hay_repetidos(var: list) -> bool:  # Opción B
+    # Verifica si hay un elemento repetido en la lista comparando el largo de la lista con un set que no permite datos repetidos.
     return len(var) != len(set(var))
 
-def lista_unicos(var : list) -> list: #Opción C
-    #Devuelve la lista sin elementos repetidos 
+
+def lista_unicos(var: list) -> list:  # Opción C
+    # Devuelve la lista sin elementos repetidos
     return list(set(var))
+
 
 def opciones():
     print("Menú de opciones.")
@@ -44,6 +48,7 @@ def opciones():
     print("3-Obtener la lista con elementos únicos.")
     print("4-Vaciar lista.")
     print("0.Salir")
+
 
 def menu():
     while True:
@@ -61,7 +66,7 @@ def menu():
                 print("Hay elementos repetidos")
             else:
                 print("No hay elementos repetidos.")
-        elif op =="3":
+        elif op == "3":
             new_lista = lista_unicos(lista)
             print("La antigua lista es:")
             print(lista)
@@ -76,6 +81,7 @@ def menu():
             break
         else:
             print("Opción inválida.")
+
 
 if __name__ == "__main__":
     menu()

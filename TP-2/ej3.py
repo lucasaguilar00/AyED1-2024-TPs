@@ -3,26 +3,29 @@ Crear una lista con los cuadrados de los números entre 1 y N (ambos incluidos),
 donde N se ingresa desde el teclado. Luego se solicita imprimir los últimos 10 valores de la lista. 
 """
 
-lista = [] #lista vacia
+lista = []  # lista vacia
 
-def cargar_lista(var : list) -> list:
+
+def cargar_lista(var: list) -> list:
     while True:
         try:
-        #Utiliza try para prevenir un posible error que detenga el programa
+            # Utiliza try para prevenir un posible error que detenga el programa
             elementos = int(input("Ingrese la cantidad de elementos que desea tener: "))
             if elementos > 1:
                 for i in range(elementos):
                     cuadrado = (i + 1) ** 2
                     var.append(cuadrado)
                 return var
-            else: 
+            else:
                 print("Introduzca un número mayor a 1")
         except ValueError:
             print("Ingrese un número entero válido")
 
-def ultimos_elementos(var : list) -> list:
-    #Devuelve los ultimos 10 elementos de la lista, o si tiene menos de 10 la lista entera
+
+def ultimos_elementos(var: list) -> list:
+    # Devuelve los ultimos 10 elementos de la lista, o si tiene menos de 10 la lista entera
     return var[-10:]
+
 
 def menu():
     while True:
@@ -48,6 +51,7 @@ def menu():
             break
         else:
             print("Opción inválida, intente de nuevo.")
+
 
 if __name__ == "__main__":
     menu()

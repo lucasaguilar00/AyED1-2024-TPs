@@ -14,38 +14,45 @@ listas auxiliares.
 d. Determinar si el contenido de una lista cualquiera es capicúa, sin usar listas
 auxiliares. Un ejemplo de lista capicúa es [50, 17, 91, 17, 50]
 """
+
 import random as rn
 from functools import reduce
 
 lista = []
 
-def cargar_lista(x : list) -> list: #Opción a
-    #Carga una lista con elementos y los datos al azar
+
+def cargar_lista(x: list) -> list:  # Opción a
+    # Carga una lista con elementos y los datos al azar
     x.clear()
     for _ in range(rn.randint(10, 99)):
         x.append(rn.randint(1000, 9999))
     return x
 
-#calcular_producto_ = reduce(lambda a, b: a * b, lista)
 
-def multiplicar(a : int, b : int) -> int: # Opción b.1
+# calcular_producto_ = reduce(lambda a, b: a * b, lista)
+
+
+def multiplicar(a: int, b: int) -> int:  # Opción b.1
     return a * b
 
-def calcular_producto(x : list) -> int:   # Opcion b
+
+def calcular_producto(x: list) -> int:  # Opcion b
     return reduce(multiplicar, x)
 
-def eliminar_valor(x : list, b : int) -> list: #Opción c
-    #Recorre la lista buscando el valor igresado como parametro para eliminarlo de la lista
+
+def eliminar_valor(x: list, b: int) -> list:  # Opción c
+    # Recorre la lista buscando el valor igresado como parametro para eliminarlo de la lista
     i = 0
     while i < len(x):
-        if x[i] == b: 
+        if x[i] == b:
             x.pop(i)
         else:
             i += 1
     return x
 
-def es_capicua(x : list) -> bool: # Opción d
-    #Recorre la lista comparando los indices de ambos lados de 1 en 1 para saber si es capicua
+
+def es_capicua(x: list) -> bool:  # Opción d
+    # Recorre la lista comparando los indices de ambos lados de 1 en 1 para saber si es capicua
     izquierda = 0
     derecha = len(x) - 1
     while izquierda < derecha:
@@ -54,6 +61,7 @@ def es_capicua(x : list) -> bool: # Opción d
         izquierda += 1
         derecha -= 1
     return True
+
 
 def opciones():
     print()
@@ -64,6 +72,7 @@ def opciones():
     print("4- Saber si la lista es capicua")
     print("5- Vaciar la lista")
     print("0- Salir.")
+
 
 def menu():
     while True:
@@ -79,7 +88,9 @@ def menu():
                 producto = calcular_producto(lista)
                 print(lista)
                 print()
-                print(f"El producto de todos los elementos de la lista es = {producto}.")
+                print(
+                    f"El producto de todos los elementos de la lista es = {producto}."
+                )
             else:
                 print("La lista esta vacía.")
         elif op == "3":
@@ -105,6 +116,7 @@ def menu():
             break
         else:
             print("No ingreso una opción válida.")
+
 
 if __name__ == "__main__":
     menu()
