@@ -7,15 +7,6 @@ además un programa para verificar el comportamiento de la función.
 
 import random as rn
 
-numero_random = []
-letra_random = []
-lista1 = [1, 2, 3, 4]
-lista2 = [2, 3, 1, 4]
-lista3 = ["a", "b", "c", "d"]
-lista4 = ["c", "a", "d", "b"]
-#Listas de prueba
-
-
 def lista_ordenada(var: list) -> bool:
     # Verifica si la lista esta ordenada
 
@@ -29,6 +20,14 @@ def lista_ordenada(var: list) -> bool:
             # Si en un caso no se cumple que el indice anterior es menor al siguiente deja de estar ordenada.
     return True
 
+
+numero_random = []
+letra_random = []
+lista1 = [1, 2, 3, 4]
+lista2 = [2, 3, 1, 4]
+lista3 = ["a", "b", "c", "d"]
+lista4 = ["c", "a", "d", "b"]
+#Listas de prueba
 
 def main():
     while True:

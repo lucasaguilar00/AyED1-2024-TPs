@@ -10,3 +10,5 @@ def concatenar(a: int, b: int):
     # Concatena dos números enteros cambiandolos a string y luego los retorna como int.
     c = str(a) + str(b)
     return int(c)
+
+print(concatenar(542,653))

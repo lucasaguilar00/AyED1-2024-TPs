@@ -6,10 +6,6 @@ resultante. La función debe modificar la lista original sin crear una copia mod
 
 import random as rn
 
-lista_original = []  # Lista original
-valores_eliminar = []  # Lista con los valores a eliminar de la lista original
-
-
 def cargar_lista(var: list) -> list:
     # Vacia la lista si esta cargada y le agrega elementos nuevos con números enteros de 2 digitos max
     var.clear()
@@ -24,6 +20,8 @@ def eliminar_valores(var: list, varoles_x_eliminar: list) -> None:
         while i in var:
             var.remove(i)
 
+lista_original = []  # Lista original
+valores_eliminar = []  # Lista con los valores a eliminar de la lista original
 
 if __name__ == "__main__":
     while True:

@@ -11,9 +11,6 @@ Combinar estas tres funciones en un mismo programa.
 
 import random as rn
 
-lista = []  # Inicio lista vacía
-
-
 def cargar_lista(var: list) -> list:  # Opción A
     # Carga lista con la cantidad de indices que desea con números random.
     while True:
@@ -49,6 +46,7 @@ def opciones():
     print("4-Vaciar lista.")
     print("0.Salir")
 
+lista = []  # Inicio lista vacía
 
 def menu():
     while True:

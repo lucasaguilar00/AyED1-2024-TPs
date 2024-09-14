@@ -18,9 +18,6 @@ auxiliares. Un ejemplo de lista capicúa es [50, 17, 91, 17, 50]
 import random as rn
 from functools import reduce
 
-lista = []
-
-
 def cargar_lista(x: list) -> list:  # Opción a
     # Carga una lista con elementos y los datos al azar
     x.clear()
@@ -73,6 +70,7 @@ def opciones():
     print("5- Vaciar la lista")
     print("0- Salir.")
 
+lista = []
 
 def menu():
     while True:

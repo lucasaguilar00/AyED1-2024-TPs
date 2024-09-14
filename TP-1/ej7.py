@@ -68,35 +68,40 @@ def op():
 
 
 def main():
-    op()
-    opcion = input("Ingrese una opción(0 salir.): ")
-    if opcion == "1":
-        dia = int(input("Ingrese el día: "))
-        mes = int(input("Ingrese el mes: "))
-        anio = int(input("Ingrese el año: "))
-        if verifica_fecha(dia, mes, anio):
-            print(diasiguiente(dia, mes, anio))
-        else:
-            print("La fecha es invalida.")
-    elif opcion == "2":
-        dia = int(input("Ingrese el día: "))
-        mes = int(input("Ingrese el mes: "))
-        anio = int(input("Ingrese el año: "))
-        suma = int(input("Ingrese la cantidad de días que desea sumar: "))
-        if verifica_fecha(dia, mes, anio):
-            print(sumar_dias(dia, mes, anio, suma))
-        else:
-            print("La fecha es invalida.")
-    elif opcion == "3":
-        print("Datos de la primer fecha:")
-        dia_a = int(input("Ingrese el día: "))
-        mes_a = int(input("Ingrese el mes: "))
-        anio_a = int(input("Ingrese el año: "))
-        print("Datos de la segunda fecha:")
-        dia_b = int(input("Ingrese el día: "))
-        mes_b = int(input("Ingrese el mes: "))
-        anio_b = int(input("Ingrese el año: "))
-        diferencia = diferencia_fechas(dia_a, mes_a, anio_a, dia_b, mes_b, anio_b)
-        print(f"La diferencia es de {diferencia} días.")
-    elif opcion == "0":
-        print("Saliendo...")
+    while True:
+        op()
+        opcion = input("Ingrese una opción(0 salir.): ")
+        if opcion == "1":
+            dia = int(input("Ingrese el día: "))
+            mes = int(input("Ingrese el mes: "))
+            anio = int(input("Ingrese el año: "))
+            if verifica_fecha(dia, mes, anio):
+                print(diasiguiente(dia, mes, anio))
+            else:
+                print("La fecha es invalida.")
+        elif opcion == "2":
+            dia = int(input("Ingrese el día: "))
+            mes = int(input("Ingrese el mes: "))
+            anio = int(input("Ingrese el año: "))
+            suma = int(input("Ingrese la cantidad de días que desea sumar: "))
+            if verifica_fecha(dia, mes, anio):
+                print(sumar_dias(dia, mes, anio, suma))
+            else:
+                print("La fecha es invalida.")
+        elif opcion == "3":
+            print("Datos de la primer fecha:")
+            dia_a = int(input("Ingrese el día: "))
+            mes_a = int(input("Ingrese el mes: "))
+            anio_a = int(input("Ingrese el año: "))
+            print("Datos de la segunda fecha:")
+            dia_b = int(input("Ingrese el día: "))
+            mes_b = int(input("Ingrese el mes: "))
+            anio_b = int(input("Ingrese el año: "))
+            diferencia = diferencia_fechas(dia_a, mes_a, anio_a, dia_b, mes_b, anio_b)
+            print(f"La diferencia es de {diferencia} días.")
+        elif opcion == "0":
+            print("Saliendo...")
+            break
+
+if __name__ == "__main__":
+    main()

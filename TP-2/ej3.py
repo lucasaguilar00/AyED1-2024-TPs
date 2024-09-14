@@ -3,8 +3,6 @@ Crear una lista con los cuadrados de los números entre 1 y N (ambos incluidos),
 donde N se ingresa desde el teclado. Luego se solicita imprimir los últimos 10 valores de la lista. 
 """
 
-lista = []  # lista vacia
-
 
 def cargar_lista(var: list) -> list:
     while True:
@@ -26,6 +24,7 @@ def ultimos_elementos(var: list) -> list:
     # Devuelve los ultimos 10 elementos de la lista, o si tiene menos de 10 la lista entera
     return var[-10:]
 
+lista = []  # lista vacia
 
 def menu():
     while True:
