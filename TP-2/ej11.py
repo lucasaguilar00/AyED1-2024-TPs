@@ -11,8 +11,10 @@ b. Realizar la búsqueda de un número de afiliado e informar cuántas veces fue
 atendido por turno y cuántas por urgencia. Repetir esta búsqueda hasta
 que se ingrese -1 como número de afiliado. 
 """
+
 from os import system, name
 import re
+
 
 def limpiar_pantalla() -> None:
     # Función para limpiar pantalla.
@@ -21,27 +23,31 @@ def limpiar_pantalla() -> None:
     else:
         system("cls")
 
+
 def verificar_codigo(codigo: str) -> bool:
     # patrón que debe verificar, que tenga 4 dígitos numéricos en formato string
     patron = "^\\d{4}$"
     return bool(re.match(patron, codigo))
 
-def separar_pacientes(pacientes: list) -> list: #Opción A.1
+
+def separar_pacientes(pacientes: list) -> list:  # Opción A.1
     # Separa los pacientes en urgencias y turnos
     tipo_ingreso = [
         [p for p in pacientes if p[1] == 0],  # Emergencia
-        [p for p in pacientes if p[1] == 1]   # Turno
+        [p for p in pacientes if p[1] == 1],  # Turno
     ]
     return tipo_ingreso
 
-def mostrar_listados(urgencias: list, turnos: list) -> None: #Opción A.2
+
+def mostrar_listados(urgencias: list, turnos: list) -> None:  # Opción A.2
     print("\nPacientes atendidos por urgencia:")
     print([p[0] for p in urgencias])
 
     print("\nPacientes atendidos por turno:")
     print([p[0] for p in turnos])
 
-def buscar_afiliado(pacientes: list) -> None: #Opción B
+
+def buscar_afiliado(pacientes: list) -> None:  # Opción B
     while True:
         afiliado = input("\nIngrese el número de afiliado a buscar (o -1 para salir): ")
 
@@ -49,7 +55,7 @@ def buscar_afiliado(pacientes: list) -> None: #Opción B
             break
 
         if not verificar_codigo(afiliado):
-            #verifica que sea un número válido
+            # verifica que sea un número válido
             print("\n-1Número de afiliado inválido.")
             continue
 
@@ -57,9 +63,14 @@ def buscar_afiliado(pacientes: list) -> None: #Opción B
         urgencias_count = sum(1 for p in pacientes if p[0] == afiliado and p[1] == 0)
         turnos_count = sum(1 for p in pacientes if p[0] == afiliado and p[1] == 1)
 
-        print(f"\nNúmero de veces que el afiliado {afiliado} fue atendido por urgencia: {urgencias_count}")
-        print(f"Número de veces que el afiliado {afiliado} fue atendido por turno: {turnos_count}")
+        print(
+            f"\nNúmero de veces que el afiliado {afiliado} fue atendido por urgencia: {urgencias_count}"
+        )
+        print(
+            f"Número de veces que el afiliado {afiliado} fue atendido por turno: {turnos_count}"
+        )
         input("Enter para continuar.")
+
 
 def menu_opciones(pacientes: list) -> None:
     while True:
@@ -82,6 +93,7 @@ def menu_opciones(pacientes: list) -> None:
         else:
             print("Opción inválida, intente nuevamente.")
 
+
 def ingresante() -> None:
     pacientes = []
     while True:
@@ -90,7 +102,9 @@ def ingresante() -> None:
             print("\nIngrese un número válido de 4 dígitos.\n")
             continue
 
-        print("\nOpciones de ingreso.\n 0. Por emergencia.\n 1. Con turno.\n -1. Para finalizar e ir a las otras opciones.\n")
+        print(
+            "\nOpciones de ingreso.\n 0. Por emergencia.\n 1. Con turno.\n -1. Para finalizar e ir a las otras opciones.\n"
+        )
         ingreso = input("Ingrese una opción: ")
 
         if ingreso == "-1":
@@ -103,6 +117,7 @@ def ingresante() -> None:
         limpiar_pantalla()
         pacientes.append((paciente, int((ingreso))))
     menu_opciones(pacientes)
+
 
 if __name__ == "__main__":
     ingresante()
