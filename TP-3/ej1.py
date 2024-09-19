@@ -20,11 +20,11 @@ NOTA: El valor de N debe leerse por teclado. Las funciones deben servir cualquie
 sea el valor ingresado.
 """
 
-#sin terminar el H, i, J por ahora.
-#Agregar un menu también para verificar cada opción.
+# sin terminar el H, i, J por ahora.
+
 
 def cargar_matriz() -> list[list[int]]:  # opcion a
-    #Carga una matriz de forma manual, tamaño y elementos enteros, no recibe parametros, retorna una matriz de números enteros.
+    # Carga una matriz de forma manual, tamaño y elementos enteros, no recibe parametros, retorna una matriz de números enteros.
     n = int(
         input(
             "Ingrese el tamaño de la matriz (La lista interna comparte el mismo tamaño): "
@@ -40,13 +40,16 @@ def cargar_matriz() -> list[list[int]]:  # opcion a
 
     return matriz
 
-def ordenar_filas(matriz: list[list[int]]) -> list[list[int]]: # opcion b
+
+def ordenar_filas(matriz: list[list[int]]):  # opcion b
     for fila in matriz:
         fila.sort()  # ordena cada fila en forma ascendente
-    return matriz
 
-def intercambiar_filas(matriz: list[list[int]], fila1: int, fila2: int) -> None: #opcion c
-    #ajustado -1 para coincidir con los indices.
+
+def intercambiar_filas(
+    matriz: list[list[int]], fila1: int, fila2: int
+) -> None:  # opcion c
+    # ajustado -1 para coincidir con los indices.
     fila1 -= 1
     fila2 -= 1
     # Verificar que los índices de las filas sean válidos
@@ -56,27 +59,34 @@ def intercambiar_filas(matriz: list[list[int]], fila1: int, fila2: int) -> None:
         # Intercambiar las filas
         matriz[fila1], matriz[fila2] = matriz[fila2], matriz[fila1]
 
-def intercambiar_columnas(matriz: list[list[int]], col1: int, col2: int) -> None: #Opcion d
-    #ajustado -1 para coincidir con los indices.
+
+def intercambiar_columnas(
+    matriz: list[list[int]], col1: int, col2: int
+) -> None:  # Opcion d
+    # ajustado -1 para coincidir con los indices.
     col1 -= 1
     col2 -= 1
     # Verificar que los índices de las columnas sean válidos
-    if not (col1 >= 0 and col1 < len(matriz[0]) and col2 >= 0 and col2 < len(matriz[0])):
+    if not (
+        col1 >= 0 and col1 < len(matriz[0]) and col2 >= 0 and col2 < len(matriz[0])
+    ):
         print("Error: Uno o ambos números de columna son inválidos.")
     else:
         # Recorrer cada fila e intercambiar los elementos en las columnas {col1} y {col2}
         for fila in matriz:
             fila[col1], fila[col2] = fila[col2], fila[col1]
 
-def transponer_matriz(matriz: list[list[int]]) -> list[list[int]]: #opcion e
-    largo = len(matriz)  #Tamaño de la matriz (las filas tienen el mismo largo)
+
+def transponer_matriz(matriz: list[list[int]]) -> list[list[int]]:  # opcion e
+    largo = len(matriz)  # Tamaño de la matriz (las filas tienen el mismo largo)
 
     # Crear la matriz transpuesta intercambiando los indices
     matriz_transpuesta = [[matriz[j][i] for j in range(largo)] for i in range(largo)]
     return matriz_transpuesta
 
-def promedio_fila(matriz: list[list[int]], numero_fila: int) -> float:#Opción f
-    numero_fila -= 1 #ajustado -1 para coincidir con los indices.
+
+def promedio_fila(matriz: list[list[int]], numero_fila: int) -> float:  # Opción f
+    numero_fila -= 1  # ajustado -1 para coincidir con los indices.
     # Verificar que el índice de la fila sea válido
     if numero_fila < 0 or numero_fila >= len(matriz):
         raise IndexError("El número de fila esta fuera del rango.")
@@ -86,14 +96,115 @@ def promedio_fila(matriz: list[list[int]], numero_fila: int) -> float:#Opción f
 
     return promedio
 
-def porcentaje_impares_columna(matriz: list[list[int]], columna: int) -> float:#opción g
-    columna -= 1 #ajusta el indice
 
-    #verificar que el índice de la columna sea válido
+def porcentaje_impares_columna(
+    matriz: list[list[int]], columna: int
+) -> float:  # opción g
+    columna -= 1  # ajusta el indice
+
+    # verificar que el índice de la columna sea válido
     if columna < 0 or columna >= len(matriz[0]):
         raise IndexError("El número de columna esta fuera de rango.")
 
     # Calcular el porcentaje de elementos impares
-    porcentaje_impares = (sum(i % 2 != 0 for i in matriz[columna]) / len(matriz[columna])) * 100
+    porcentaje_impares = (
+        sum(i % 2 != 0 for i in matriz[columna]) / len(matriz[columna])
+    ) * 100
 
     return porcentaje_impares
+
+
+def menu():
+    opciones = [
+        "Cargar una matriz de NxN",
+        "Ordenar listas de manera ascendente",
+        "Intercambiar filas de la matriz",
+        "Intercambiar columnas de la matriz",
+        "Trasponer matriz",
+        "Calcular promedio de una fila",
+        "Calcular porcentaje de elementos impares en una fila",
+        "Determinar si la matriz es simétrica con respecto a su diagonal principal",
+        "Determinar si la matriz es simétrica con respecto a su diagonal secundaria",
+        "Determinar qué columnas de la matriz son palíndromos (capicúas)",
+        "Salir",
+    ]
+    matrix = []
+
+    while True:
+        print("\nMenú de opciones:")
+        for num, opcion in enumerate(opciones):
+            print(f"{num + 1}. {opcion}.")
+        op = input("\nIngrese una opción: ")
+        if op == "1":
+            try:
+                matrix = cargar_matriz()
+                for fila in matrix:
+                    print(fila)
+            except ValueError:
+                print("El valor ingresado no es válido.\n")
+        elif op == "2":
+            if matrix:
+                ordenar_filas(matrix)
+                print("Matriz con filas ordenadas de forma ascendente:")
+                for fila in matrix:
+                    print(fila)
+            else:
+                print("La matriz esta vacia.")
+        elif op == "3":
+            if matrix:
+                fila1 = int(input("Ingrese el número de la primera fila: "))
+                fila2 = int(input("Ingrese el número de la segunda fila: "))
+                intercambiar_filas(matrix, fila1, fila2)
+                for fila in matrix:
+                    print(fila)
+            else:
+                print("La matriz esta vacia.")
+        elif op == "4":
+            if matrix:
+                col1 = int(input("Ingrese el número de la primera columna: "))
+                col2 = int(input("Ingrese el número de la segunda columna: "))
+                intercambiar_columnas(matrix, col1, col2)
+                for fila in matrix:
+                    print(fila)
+            else:
+                print("La matriz esta vacia.")
+        elif op == "5":
+            if matrix:
+                matrix = transponer_matriz(matrix)
+                for fila in matrix:
+                    print(fila)
+            else:
+                print("La matriz esta vacia.")
+        elif op == "6":
+            if matrix:
+                fila = int(
+                    input("Ingrese el número de la fila para calcular su promedio: ")
+                )
+                promedio = promedio_fila(matrix, fila)
+                print(f"El promedio de la fila {fila} es: {promedio}")
+            else:
+                print("La matriz esta vacia.")
+        elif op == "7":
+            if matrix:
+                columna = int(input("Ingrese el número de la columna: "))
+                porcentaje = porcentaje_impares_columna(matrix, columna)
+                print(
+                    f"El porcentaje de elementos impares en la columna {columna} es: {porcentaje}%"
+                )
+            else:
+                print("La matriz esta vacia.")
+        elif op == "8":
+            pass
+        elif op == "9":
+            pass
+        elif op == "10":
+            pass
+        elif op == "11":  # Salir
+            print("Saliendo del programa.")
+            break
+        else:
+            print("Opción inválida.")
+
+
+if __name__ == "__main__":
+    menu()
