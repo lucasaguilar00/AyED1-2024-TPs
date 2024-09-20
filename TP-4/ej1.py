@@ -4,8 +4,16 @@ utilizar cadenas auxiliares ni rebanadas. Escribir además un programa que permi
 verificar su funcionamiento.
 """
 
+
 def es_capicua(cadena: str) -> bool:
-    #$ecorre la cadena comparando el primer y el último carácter mientras avanza hacia el centro de la string
+    """
+    Precondiciones:
+    cadena debe ser una string
+
+    Postcondiciones:
+    Devuelve True si la cadena es capicúa o False en caso contrario
+    """
+    # $ecorre la cadena comparando el primer y el último carácter mientras avanza hacia el centro de la string
     largo = len(cadena)
     for i in range(largo // 2):
         if cadena[i] != cadena[largo - 1 - i]:
@@ -14,8 +22,17 @@ def es_capicua(cadena: str) -> bool:
 
 
 def verificar_capicua():
+    """
+    Precondiciones:
+    nada
+
+    Postcondiciones:
+    permite al usuario ingresar cadenas para verificar si son capicúas
+    """
     while True:
-        cadena = input("Ingrese una palabra para verificar si es capicúa (0 para salir): ")
+        cadena = input(
+            "Ingrese una palabra para verificar si es capicúa (0 para salir): "
+        )
         if cadena == "0":
             break
         if es_capicua(cadena):

@@ -7,6 +7,13 @@ de tal forma que ningún número se repita. Imprimir la matriz por pantalla
 import random as rn
 
 def generar_matriz_aleatoria(n: int)-> list[list[int]]:
+    """
+    Precondiciones:
+    n debe ser un número entero positivo
+
+    Postcondiciones:
+    devuelve una matriz cuadrada de tamaño n x n cargada con números enteros ÚNICOS random en el rango de 0 a 'n' elevado al cuadrado
+    """
     numeros = list(range(n * n))
     rn.shuffle(numeros) #Mezcla la lista para que sea totalmente aleatorio
 

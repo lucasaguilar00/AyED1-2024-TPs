@@ -18,7 +18,17 @@ auxiliares. Un ejemplo de lista capicúa es [50, 17, 91, 17, 50]
 import random as rn
 from functools import reduce
 
+
 def cargar_lista(x: list) -> list:  # Opción a
+    """
+    Precondiciones:
+    x debe ser una lista vacía o contener elementos
+
+    Postcondiciones:
+    Se carga la lista x con un número aleatorio de elementos (entre 10 y 99)
+    cada uno siendo un número aleatorio de cuatro dígitos (entre 1000 y 9999).
+    Devuelve la lista x modificada.
+    """
     # Carga una lista con elementos y los datos al azar
     x.clear()
     for _ in range(rn.randint(10, 99)):
@@ -30,14 +40,37 @@ def cargar_lista(x: list) -> list:  # Opción a
 
 
 def multiplicar(a: int, b: int) -> int:  # Opción b.1
+    """
+    Precondiciones:
+    a y b son enteros.
+
+    Postcondiciones:
+    Devuelve el producto de multiplicar a y b.
+    """
     return a * b
 
 
 def calcular_producto(x: list) -> int:  # Opcion b
+    """
+    Precondiciones:
+    el parametro debe ser una lista que contiene números enteros.
+
+    Postcondiciones:
+    Devuelve el producto de todos los elementos en la lista
+    """
     return reduce(multiplicar, x)
 
 
 def eliminar_valor(x: list, b: int) -> list:  # Opción c
+    """
+    Precondiciones:
+    x es una lista de nímeros enteros
+    b es un entero que debe estar en la lista
+
+    Postcondiciones:
+    Se eliminan todas las apariciones de b en la lista
+    devuelve la lista modificada
+    """
     # Recorre la lista buscando el valor igresado como parametro para eliminarlo de la lista
     i = 0
     while i < len(x):
@@ -50,6 +83,13 @@ def eliminar_valor(x: list, b: int) -> list:  # Opción c
 
 def es_capicua(x: list) -> bool:  # Opción d
     # Recorre la lista comparando los indices de ambos lados de 1 en 1 para saber si es capicua
+    """
+    Precondiciones:
+    obtiene una lista de números enteros
+
+    Postcondiciones:
+    devuelve True si la lista es capicúa o False en caso contrario.
+    """
     izquierda = 0
     derecha = len(x) - 1
     while izquierda < derecha:
@@ -70,7 +110,9 @@ def opciones():
     print("5- Vaciar la lista")
     print("0- Salir.")
 
+
 lista = []
+
 
 def menu():
     while True:

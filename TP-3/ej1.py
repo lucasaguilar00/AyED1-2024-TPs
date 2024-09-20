@@ -24,6 +24,13 @@ sea el valor ingresado.
 
 
 def cargar_matriz() -> list[list[int]]:  # opcion a
+    """
+    Precondiciones:
+    idk
+
+    Postcondiciones:
+    carga una matriz de números enteros de tamaño N x N que ingresa el usuario y devuelve la matriz que se generó
+    """
     # Carga una matriz de forma manual, tamaño y elementos enteros, no recibe parametros, retorna una matriz de números enteros.
     n = int(
         input(
@@ -42,6 +49,13 @@ def cargar_matriz() -> list[list[int]]:  # opcion a
 
 
 def ordenar_filas(matriz: list[list[int]]):  # opcion b
+    """
+    Precondiciones:
+    matriz es una lista de listas que contiene números enteros
+
+    Postcondiciones:
+    ordena cada fila de la matriz de forma ascendente
+    """
     for fila in matriz:
         fila.sort()  # ordena cada fila en forma ascendente
 
@@ -49,6 +63,15 @@ def ordenar_filas(matriz: list[list[int]]):  # opcion b
 def intercambiar_filas(
     matriz: list[list[int]], fila1: int, fila2: int
 ) -> None:  # opcion c
+    """
+    Precondiciones:
+    matriz es una lista de listas que contiene números enteros
+    fila1 y fila2 son enteros que representan los indices de las filas
+
+    Postcondiciones:
+    intercambia las filas 'fila1' y 'fila2' en la matriz.
+    si los índices son inválidos, se avisa mediante un mensaje de error
+    """
     # ajustado -1 para coincidir con los indices.
     fila1 -= 1
     fila2 -= 1
@@ -63,6 +86,15 @@ def intercambiar_filas(
 def intercambiar_columnas(
     matriz: list[list[int]], col1: int, col2: int
 ) -> None:  # Opcion d
+    """
+    Precondiciones:
+    matriz es una lista de listas que contiene núeros enteros
+    col1 y col2 son enteros que representan índices de columnas
+
+    Postcondiciones:
+    intercambia los elementos en las columnas 'col1' y 'col2' de la matriz.
+    si los índices son inválidos, se avisa mediante un mensaje de error
+    """
     # ajustado -1 para coincidir con los indices.
     col1 -= 1
     col2 -= 1
@@ -78,6 +110,14 @@ def intercambiar_columnas(
 
 
 def transponer_matriz(matriz: list[list[int]]) -> list[list[int]]:  # opcion e
+    """
+    Precondiciones:
+    matriz es una lista de listas que contiene númerosenteros
+
+    Postcondiciones:
+    devuelve una nueva matriz que es la transpuesta de la matriz original,
+    intercambiando filas por columnas.
+    """
     largo = len(matriz)  # Tamaño de la matriz (las filas tienen el mismo largo)
 
     # Crear la matriz transpuesta intercambiando los indices
@@ -86,6 +126,15 @@ def transponer_matriz(matriz: list[list[int]]) -> list[list[int]]:  # opcion e
 
 
 def promedio_fila(matriz: list[list[int]], numero_fila: int) -> float:  # Opción f
+    """
+    Precondiciones:
+    matriz es una lista de listas que contiene números enteros
+    numero_fila es un int que representa el índice de la fila
+
+    Postcondiciones:
+    devuelve el promedio de los elementos en la fila especificada
+    si el índice de la fila es inválido, se lanza una excepción
+    """
     numero_fila -= 1  # ajustado -1 para coincidir con los indices.
     # Verificar que el índice de la fila sea válido
     if numero_fila < 0 or numero_fila >= len(matriz):
@@ -100,6 +149,15 @@ def promedio_fila(matriz: list[list[int]], numero_fila: int) -> float:  # Opció
 def porcentaje_impares_columna(
     matriz: list[list[int]], columna: int
 ) -> float:  # opción g
+    """
+    Precondiciones:
+    matriz es una lista de listas que contiene números enteros
+    columna es un número entero que representa el índice de la columna
+
+    Postcondiciones:
+    devuelve el porcentaje de elementos impares en la columna especificada
+    Si el índice de la columna es inválido, se lanza una excepción
+    """
     columna -= 1  # ajusta el indice
 
     # verificar que el índice de la columna sea válido

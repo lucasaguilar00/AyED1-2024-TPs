@@ -18,17 +18,38 @@ import random as rn
 
 
 def generar_matriz(num_fabricas: int, num_dias: int) -> list[list[int]]:  # opción a
-    # Genera una matriz de datos aleatorios para la cantidad de bicicletas producidas
+    """
+    Precondiciones:
+    num_fabricas debe ser un entero positivo
+    num_dias debe ser un entero positivo
+
+    Postcondiciones:
+    devuelve una matriz del tamaño de num_fabricas x num_dias con datos aleatorios 
+    de bicicletas producidas, y cada valor está en el rango de 0 a 150
+    """
     return [[rn.randint(0, 150) for _ in range(num_dias)] for _ in range(num_fabricas)]
 
 
 def totales_fabricas(matriz: list[list[int]]) -> list[int]:  # opción b
-    # Calcula la cantidad total de bicicletas fabricadas por cada fábric
+    """
+    Precondiciones:
+    la matriz debe ser una lista de listas de enteros
+
+    Postcondiciones:
+    devuelve una lista con la cantidad total de bicicletas fabricadas por cada fábrica.
+    """
     return [sum(fabrica) for fabrica in matriz]
 
 
 def fabrica_max_produccion(matriz: list[list[int]]) -> tuple[str, int]:
-    # Determina la fábrica que más produjo en un solo día
+    """
+    Precondiciones:
+    la matriz debe ser una lista de listas de enteros
+
+    Postcondiciones:
+    devuelve una tupla y esta contiene el índice de la fábrica que más produjo en un día
+    junto a el nombre del día correspondiente
+    """
     max_produccion = max(
         (produccion, i, j)
         for i, fabrica in enumerate(matriz)
@@ -40,7 +61,14 @@ def fabrica_max_produccion(matriz: list[list[int]]) -> tuple[str, int]:
 
 
 def dia_mas_productivo(matriz: list[list[int]]) -> tuple[str, int]:
-    # Determina el día más productivo considerando todas las fábricas combinadas
+    """
+    Precondiciones:
+    la matriz debe ser una lista de listas de enteros
+
+    Postcondiciones:
+    devuelve una tupla que contiene el nombre del día más productivo y el total de producción 
+    en ese día, siempre considerando todas las fábricas
+    """
     total_dias = [sum(fabrica[j] for fabrica in matriz) for j in range(len(matriz[0]))]
     dia_productivo = total_dias.index(max(total_dias))
     dias = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
@@ -48,7 +76,13 @@ def dia_mas_productivo(matriz: list[list[int]]) -> tuple[str, int]:
 
 
 def menores_producciones(matriz: list[list[int]]) -> list[int]:
-    # Crea una lista con la menor cantidad fabricada por cada fábrica
+    """
+    Precondiciones:
+    la matriz debe ser una lista de listas de enteros
+
+    Postcondiciones:
+    devuelve una lista con la menor cantidad de bicicletas fabricada por cada fábrica
+    """
     return [min(fabrica) for fabrica in matriz]
 
 

@@ -7,10 +7,21 @@ posiciones pares. Los dígitos se numeran desde la izquierda. Ejemplo: Si clave
 maestra fuera 18293, la clave 1 sería 123 y la clave 2 sería 89
 """
 
+
 def extraer_claves(clave_maestra: int) -> tuple:
-    #lo recibe como str y los concatena mediante join para poder separar cada clave segun iteraciones
-    clave1 = ''.join(d for i, d in enumerate(clave_maestra) if i % 2 == 0)
-    clave2 = ''.join(d for i, d in enumerate(clave_maestra) if i % 2 != 0)
+    """
+    Precondiciones:
+    clave_maestra es una string que representaria ser una clave
+
+    Postcondiciones:
+    se obtienen dos claves de la clave maestra, donde clave1 contiene
+    los caracteres en posiciones pares y clave2 contiene los caracteres
+    en posiciones impares
+    devuelve una tupla con las dos clave
+    """
+    # lo recibe como str y los concatena mediante join para poder separar cada clave segun iteraciones
+    clave1 = "".join(d for i, d in enumerate(clave_maestra) if i % 2 == 0)
+    clave2 = "".join(d for i, d in enumerate(clave_maestra) if i % 2 != 0)
     return clave1, clave2
 
 

@@ -19,21 +19,37 @@ g:  1 2 3 4              h: 1 2 4 7           i: 1 2 6 7
    11 16 15 6              6 9 12 14            4 9 12 14
     10 9 8 7               10 13 15 16         10 11 15 16
 """
+
 num = 4
 
-def a_matriz(n: int)-> list[list[int]]:
-    #Crea una matriz cuadrada en donde la primera diagonal incrementa de forma consecutiva siguiendo el mismo patron
-    matriz = [[0]*n for _ in range(n)]
+
+def a_matriz(n: int) -> list[list[int]]:
+    """
+    Precondiciones:
+    n debe ser un número entero positivo
+
+    Postcondiciones:
+    devuelve una matriz cuadrada de tamaño n donde la diagonal principal contiene números impares consecutivos.
+    """
+    matriz = [[0] * n for _ in range(n)]
     for i in range(n):
         matriz[i][i] = i * 2 + 1
     return matriz
 
-def b_matriz(n: int)-> list[list[int]]:
-    #Crea una matriz cuadrada en donde la diagonal paralela incrementa de forma consecutiva siguiendo el mismo patron
-    matriz = [[0]*n for _ in range(n)]
+
+def b_matriz(n: int) -> list[list[int]]:
+    """
+    Precondiciones:
+    n debe ser un número entero positivo
+
+    Postcondiciones:
+    devuelve una matriz cuadrada de tamaño n donde la diagonal secundaria contiene potencias de 3.
+    """
+    matriz = [[0] * n for _ in range(n)]
     for i in range(n):
-        matriz[i][n-i-1] = 3 ** (n-i-1)
+        matriz[i][n - i - 1] = 3 ** (n - i - 1)
     return matriz
+
 
 print("matriz a")
 for fila in a_matriz(num):

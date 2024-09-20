@@ -5,6 +5,14 @@ donde N se ingresa desde el teclado. Luego se solicita imprimir los últimos 10 
 
 
 def cargar_lista(var: list) -> list:
+    """
+    Precondiciones:
+    la lista debe estar vacia o contener elementos
+
+    Postcondiciones:
+    Se carga la lista con N elementos, cada elemento es el cuadrado de su posición (1 al N).
+    Devuelve la lista var modificada
+    """
     while True:
         try:
             # Utiliza try para prevenir un posible error que detenga el programa
@@ -21,10 +29,20 @@ def cargar_lista(var: list) -> list:
 
 
 def ultimos_elementos(var: list) -> list:
+    """
+    Precondiciones:
+    la lista debe contener valores enteros
+
+    Postcondiciones:
+    Devuelve una nueva lista que contiene los últimos 10 elementos de la lista proporcionada
+    Si la lista tiene menos de 10 elementos devuelve la lista completa
+    """
     # Devuelve los ultimos 10 elementos de la lista, o si tiene menos de 10 la lista entera
     return var[-10:]
 
+
 lista = []  # lista vacia
+
 
 def menu():
     while True:
