@@ -55,7 +55,7 @@ def fabrica_max_produccion(matriz: list[list[int]]) -> tuple[str, int]:
         for i, fabrica in enumerate(matriz)
         for j, produccion in enumerate(fabrica)
     )
-    dias = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
+    dias = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado"]
 
     return max_produccion[1], dias[max_produccion[2]]
 
@@ -71,7 +71,7 @@ def dia_mas_productivo(matriz: list[list[int]]) -> tuple[str, int]:
     """
     total_dias = [sum(fabrica[j] for fabrica in matriz) for j in range(len(matriz[0]))]
     dia_productivo = total_dias.index(max(total_dias))
-    dias = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
+    dias = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado"]
     return dias[dia_productivo], total_dias[dia_productivo]
 
 
@@ -97,7 +97,7 @@ def menu():
     ]
 
     num_fabricas = rn.randint(3, 6)
-    num_dias = 7
+    num_dias = 6
     matriz = []
     while True:
         print("\nMenú de opciones:")
