@@ -19,7 +19,7 @@ def extraer_subcadena_rebanadas(string: str, posicion: int, caracteres: int) -> 
     
     Postcondicion: Retorna la extracción de la cadena de caracteres.
     """
-    return string[posicion: posicion + caracteres]
+    return string[posicion -1: posicion + caracteres - 1]
 
 def extraer_subcadena(string: str, posicion: int, caracteres: int) -> str:
     """
@@ -27,24 +27,25 @@ def extraer_subcadena(string: str, posicion: int, caracteres: int) -> str:
     y una cantidad de caracteres que desea extraer 'número entero positivo'.. 
     La posicion y la cantidad de caracteres no deben ser mayor al largo de la cadena de caracteres 'string'.
     
-    Arg: La función extrae una subcadena de caracteres de una cadena utilizando 
+    Arg: La función extrae una subcadena de caracteres de una cadena 
     mediante la concatenacion de strings
     
     Postcondicion: Retorna la extracción de la cadena de caracteres.
     """
     subcadena = ""
-    for i in range(posicion + 1, posicion + caracteres + 1):
+    for i in range(posicion -1, posicion + caracteres -1):
         subcadena += string[i]
     return subcadena
 
 def main() -> None:
     """
+    Precondición: nada
     Arg: Función principal para verificar el comportamiento de ambas 
     funciones de extraccion de subcadenas de forma manual 
+    Postcondición: nada
     """
     while True:
-        cadena = input("Ingrese una cadena de caracteres:\n")
-        print("\nCadena actual:", cadena)
+        cadena = input("Ingrese una cadena de caracteres: ")
 
         # obtiene la posición y cantidad de caracteres que desea extraer
         try:
@@ -54,9 +55,10 @@ def main() -> None:
             print("\nEntrada inválida. Por favor, ingresa números enteros.")
             continue
 
+        print("\nCadena actual:", cadena)
         # verifica la funcion que utiliza rebanadas
         subcadena_rebanada = extraer_subcadena_rebanadas(cadena, posicion, cantidad)
-        print(f"Subcadena: '{subcadena_rebanada}'")
+        print(f"Subcadena (con rebanadas): '{subcadena_rebanada}'")
 
         # Verificar la función que es sin rebanadas
         subcadena_sin_rebanada = extraer_subcadena(cadena, posicion, cantidad)
@@ -64,7 +66,7 @@ def main() -> None:
 
         # Preguntar si el usuario desea continuar o salir
         salir = input("\nSi desea salir ingresa 'si', cualquier tecla para continuar: ").lower()
-        if salir != 'si':
+        if salir == 'si':
             print("Saliendo.")
             break
 
