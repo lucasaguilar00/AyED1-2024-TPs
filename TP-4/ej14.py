@@ -12,18 +12,20 @@ recordando que las direcciones de mail no distinguen mayúsculas ni minúsculas.
 
 import re
 
+
 def email_valido(email: str) -> bool:
     """
     Precondición: email es una cadena de caracteres.
 
-    Arg: Verifica que la dirección email que se brinda sea valida 
+    Arg: Verifica que la dirección email que se brinda sea valida
     teniendo en cuenta los argumentos del patron.
 
     Postcondición: Retorna True o False si es válido o no.
     """
-    #expresión regular para validar correo
+    # expresión regular para validar correo
     patron = r"^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.(com|com\.ar)$"
     return bool(re.match(patron, email))
+
 
 def main():
     """
@@ -33,27 +35,30 @@ def main():
     emails = []
 
     while True:
-        correo_electronico = input("Ingrese una dirección de correo electrónico (para finalizar presione enter): ")
+        correo_electronico = input(
+            "Ingrese una dirección de correo electrónico (para finalizar presione enter): "
+        )
 
         if correo_electronico == "":
             print("Saliendo.")
             break
-        
+
         if email_valido(correo_electronico):
             print("Es válida.\n")
             emails.append(correo_electronico.lower())
         else:
             print(f"\nLa dirección '{correo_electronico}' no es válida.\n")
-    
+
     # Extraer dominios y eliminarlos duplicados
     dominios = {email for email in emails}
-    
+
     # Mostrar dominios ordenados alfabéticamente
     print("\nLista ordenada y sin repeticiones de los emails válidos:")
     i = 1
     for dominio in sorted(dominios):
         print(f"{i}. {dominio}")
         i += 1
+
 
 if __name__ == "__main__":
     main()
