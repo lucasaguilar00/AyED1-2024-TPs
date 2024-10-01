@@ -7,6 +7,7 @@ exacta del error en caso necesario. Devolver el valor ingresado cuando éste sea
 correcto. Escribir también un programa que permita probar el correcto funcionamiento de la misma.
 """
 
+
 def verificar_numero_natural() -> int:
     """
     Precondición: Nada
@@ -26,7 +27,6 @@ def verificar_numero_natural() -> int:
 
         except ValueError as error:
             print(f"Error: {error}. Intente nuevamente.")
-
 
 
 if __name__ == "__main__":
