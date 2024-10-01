@@ -38,7 +38,13 @@ def reemplazar_palabra(
 
     return cadena_final, reemplazos
 
-def main():
+
+def main() -> None:
+    """
+    Precondicion: nada
+    Postcondición: nada
+    """
+
     frase = "Tengo un perro negro y le gusta correr por el patio mientras juega con otros perros y busca su pelota"
 
     print(frase)
@@ -51,6 +57,7 @@ def main():
     print(f"\nnLa frase original era:\n{frase}")
     print(f"\La frase modificada es:\n{frase_modificada}")
     print(f"\nLa cantidad de reemplazos que hubo: {cantidad_reemplazos}")
+
 
 if __name__ == "__main__":
     main()
