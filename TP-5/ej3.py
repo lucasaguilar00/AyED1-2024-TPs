@@ -6,20 +6,34 @@ Devolver una cadena vacía si el número de mes es inválido. La detección de m
 inválidos deberá realizarse a través de excepciones.
 """
 
+
 def obtener_nombre_mes(numero_mes: int) -> str:
     """
     Precondición: Debe recibir un número entero que corresponda a un mes
     Argumentos: Busca en la lista de meses el número que corresponde
-    Postcondición: Retorna una cadena con el mes correspondiente o 
+    Postcondición: Retorna una cadena con el mes correspondiente o
     una cadena vacía si no corresponde a un mes
     """
-    meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+    meses = [
+        "Enero",
+        "Febrero",
+        "Marzo",
+        "Abril",
+        "Mayo",
+        "Junio",
+        "Julio",
+        "Agosto",
+        "Septiembre",
+        "Octubre",
+        "Noviembre",
+        "Diciembre",
+    ]
 
     try:
         return meses[numero_mes - 1]
     except IndexError:
         return ""
+
 
 if __name__ == "__main__":
     while True:

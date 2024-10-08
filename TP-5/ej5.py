@@ -8,7 +8,8 @@ negativo.
 
 from math import sqrt
 
-def calcular_raiz_cuadrada()-> None:
+
+def calcular_raiz_cuadrada() -> None:
     """
     Precondición: Nada
     Argumentos: Calcula la raíz cuadrada de un número positivo
@@ -18,13 +19,16 @@ def calcular_raiz_cuadrada()-> None:
         try:
             numero = int(input("Ingrese un número para calcular su raíz cuadrada: "))
             if numero < 0:
-                raise ValueError("\nError - No se puede calcular la raíz cuadrada de un número negativo.")
+                raise ValueError(
+                    "\nError - No se puede calcular la raíz cuadrada de un número negativo."
+                )
 
             raiz_cuadrada = sqrt(numero)
             return numero, raiz_cuadrada
 
         except ValueError as e:
             print(f"\nError: {e}. Intente nuevamente.")
+
 
 if __name__ == "__main__":
     numero_calcular, resultado = calcular_raiz_cuadrada()
