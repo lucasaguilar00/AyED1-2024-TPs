@@ -7,18 +7,22 @@ adivinarlo, se debe imprimir en pantalla la cantidad de intentos que le tomó ha
 el número. Si el usuario introduce algo que no sea un número se mostrará un
 mensaje en pantalla y se lo contará como un intento más.
 """
+
 import random as rn
 
-def adivinar_numero()-> int:
+
+def adivinar_numero() -> int:
     """
     Precondición: nada
     Argumentos: Genera un número random el cual te pide adivinar.
     Postcondición: Retorna un entero con la cantidad de intentos.
     """
     intentos = 0
-    numero = rn.randint(1,500)
+    numero = rn.randint(1, 500)
 
-    print("Juego de adivinar\n Intenta adivinar el número que elegí entre el número 1 y el 500")
+    print(
+        "Juego de adivinar\n Intenta adivinar el número que elegí entre el número 1 y el 500"
+    )
 
     while True:
         try:
@@ -38,6 +42,7 @@ def adivinar_numero()-> int:
         except ValueError:
             print("Ingresaste un dato inválido, cuenta como un intento erróneo.")
             intentos += 1
+
 
 if __name__ == "__main__":
     n_intentos = adivinar_numero()
