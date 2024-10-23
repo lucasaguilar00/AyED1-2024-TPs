@@ -2,6 +2,7 @@
 Desarrollar una función que devuelva el producto de dos números enteros por sumas sucesivas.
 """
 
+
 def producto(a: int, b: int) -> int:
     """
     Precondición: Los parametros 'a' y 'b' deben ser números enteros
@@ -18,14 +19,18 @@ def producto(a: int, b: int) -> int:
 
     return resultado
 
+
 if __name__ == "__main__":
     while True:
         try:
             numero = int(input("Ingrese un número: "))
             multiplicador = int(input("Ingrese por cuanto quiere multiplicarlo: "))
         except ValueError:
-            print("Ingrese un dato número que sea válido.")
+            print("Ingrese un dato númerico que sea válido.")
+            continue
 
         resultado_producto = producto(numero, multiplicador)
 
-        print(f"El producto de '{numero}' y '{multiplicador}' es = {resultado_producto}. ")
+        print(
+            f"El producto de '{numero}' y '{multiplicador}' es = {resultado_producto} "
+        )
