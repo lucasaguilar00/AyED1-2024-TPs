@@ -36,13 +36,13 @@ def ingresar_fecha() -> Tuple[int, int, int]:
             else:
                 dias_por_mes[1] = 28
 
-            if 1 <= mes <= 12 and 1 <= dia <= dias_por_mes[mes - 1]:
+            if mes >= 1 and mes <= 12 and dia >= 1 and dia <= dias_por_mes[mes - 1]:
                 return (anio, mes, dia)
             else:
                 print("\nFecha inválida. Intente nuevamente.\n")
 
 
-def sumar_dias(fecha: Tuple[int, int, int], sumar_dias: int) -> Tuple[int, int, int]:
+def suma_dias(fecha: Tuple[int, int, int], sumar_dias: int) -> Tuple[int, int, int]:
     """
     Precondición: Recibe una tupla que debe contener la fecha en formato (año, mes, día) con INT
     y el parametro sumar_dias que también es INT.
@@ -136,7 +136,7 @@ def main() -> None:
             except ValueError:
                 print("\nError - Dato inválido. Ingrese un número entero.\n")
 
-        nueva_fecha = sumar_dias(fecha, dias_a_sumar)
+        nueva_fecha = suma_dias(fecha, dias_a_sumar)
         print(
             f"\nLa nueva fecha después de sumar {dias_a_sumar} días es: {nueva_fecha}"
         )
