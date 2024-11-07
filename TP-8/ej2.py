@@ -10,7 +10,9 @@ para (12,10,30). Pero si la tupla fuera (25, 12, 31) devolverá "25 de Diciembre
 cuenta. Escribir también un programa para ingresar los datos, invocar a la función y
 mostrar el resultado.
 """
+
 from typing import Tuple
+
 
 def ingresar_fecha() -> Tuple[int, int, int]:
     """
@@ -36,7 +38,13 @@ def ingresar_fecha() -> Tuple[int, int, int]:
             else:
                 dias_por_mes[1] = 28
 
-            if mes >= 1 and mes <= 12 and dia >= 1 and dia <= dias_por_mes[mes - 1] and anio < 2100:
+            if (
+                mes >= 1
+                and mes <= 12
+                and dia >= 1
+                and dia <= dias_por_mes[mes - 1]
+                and anio < 2100
+            ):
                 return (dia, mes, anio)
             else:
                 print("\nFecha inválida. Intente nuevamente.\n")
@@ -58,8 +66,18 @@ def fecha_formato_extendido(fecha: Tuple[int, int, int]) -> str:
             break
 
     meses_string = (
-        "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-        "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+        "Enero",
+        "Febrero",
+        "Marzo",
+        "Abril",
+        "Mayo",
+        "Junio",
+        "Julio",
+        "Agosto",
+        "Septiembre",
+        "Octubre",
+        "Noviembre",
+        "Diciembre",
     )
 
     dia, mes, anio = fecha
@@ -72,13 +90,17 @@ def fecha_formato_extendido(fecha: Tuple[int, int, int]) -> str:
 
     return f"{dia} de {meses_string[mes - 1]} de {anio}"
 
+
 def main() -> None:
     print("Ingrese la fecha:\n")
     fecha = ingresar_fecha()
 
     fecha_extendida = fecha_formato_extendido(fecha)
 
-    print(f"\nLa fecha {fecha[0]}/{fecha[1]}/{fecha[2]} en formato extendido es: {fecha_extendida}")
+    print(
+        f"\nLa fecha {fecha[0]}/{fecha[1]}/{fecha[2]} en formato extendido es: {fecha_extendida}"
+    )
+
 
 if __name__ == "__main__":
     main()
