@@ -26,22 +26,31 @@ def main() -> None:
     Argumentos: Crea una prueba para válidar la función.
     Postcondición: Nada
     """
-    primer_ficha = tuple(
-        map(
-            int,
-            input(
-                "Ingrese los valores de la primera ficha (separados por un espacio): "
-            ).split(),
-        )
-    )
-    segunda_ficha = tuple(
-        map(
-            int,
-            input(
-                "Ingrese los valores de la segunda ficha (separados por un espacio): "
-            ).split(),
-        )
-    )
+    while True:
+        try:
+            primer_ficha = tuple(
+                map(
+                    int,
+                    input(
+                        "Ingrese los valores de la primera ficha (separados por un espacio): "
+                    ).split(),
+                )
+            )
+            segunda_ficha = tuple(
+                map(
+                    int,
+                    input(
+                        "Ingrese los valores de la segunda ficha (separados por un espacio): "
+                    ).split(),
+                )
+            )
+        except ValueError:
+            print(
+                "Error - Asegúrese de ingresar dos números enteros separados por un espacio."
+            )
+
+        else:
+            break
 
     print(f"Ficha 1: {primer_ficha} \nFicha 2: {segunda_ficha}")
 
